@@ -1,0 +1,5 @@
+## Interface: 80200
+## Title: Vendie
+## Notes: Automatically sell greys and repair items.
+
+main.lua
