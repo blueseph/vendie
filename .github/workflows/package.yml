@@ -12,12 +12,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: packages vendie to zip in dist file
       run: |
-        mkdir dist
         sudo apt-get install zip
-        zip -r ./dist/vendie.zip ./src 
+        zip -r vendie.zip src/
     - name: upload artifact
       uses: actions/upload-artifact@v1
       with:
         name: vendie
-        path: dist
+        path: ./vendie.zip
 
