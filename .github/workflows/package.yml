@@ -19,5 +19,5 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: vendie
-        dist: dist
+        path: dist
 
