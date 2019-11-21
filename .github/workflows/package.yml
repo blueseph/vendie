@@ -10,13 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: packages vendie to zip in dist file
-      run: |
-        sudo apt-get install zip
-        zip -r vendie.zip src/
     - name: upload artifact
       uses: actions/upload-artifact@v1
       with:
         name: vendie
-        path: ./vendie.zip
+        path: ./src
 
