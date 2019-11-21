@@ -15,3 +15,6 @@ jobs:
         mkdir dist
         sudo apt-get install zip
         zip -r ./dist/vendie.zip ./src 
+      with:
+        name: vendie
+        path: dist
