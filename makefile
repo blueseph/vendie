@@ -1,2 +1,2 @@
 build:
-	cp src/ build/vendie/
+	cp -r src/ build/vendie/
