@@ -13,6 +13,8 @@ jobs:
     - name: Set output
       id: vars
       run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+    - name: make build
+      run: make build
     - name: zip artifacts
       uses: thedoctor0/zip-release@master
       with:
