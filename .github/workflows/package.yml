@@ -18,12 +18,12 @@ jobs:
     - name: zip artifacts
       uses: thedoctor0/zip-release@master
       with:
-        filename: vendie-${{steps.vars.outputs.tag}}.zip
+        filename: vendie.zip
         type: zip
         path: build
     - name: upload artifact
       uses: actions/upload-artifact@v1
       with:
-        name: vendie-${{steps.vars.outputs.tag}}.zip
+        name: vendie.zip
         path: "."
 
