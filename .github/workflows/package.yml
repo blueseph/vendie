@@ -20,7 +20,7 @@ jobs:
       with:
         filename: vendie-${{steps.vars.outputs.tag}}.zip
         type: zip
-        directory: build
+        path: build
     - name: upload artifact
       uses: actions/upload-artifact@v1
       with:
