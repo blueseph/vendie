@@ -1,4 +1,4 @@
-## Interface: 80300
+## Interface: 90005
 ## Title: Vendie
 ## Notes: Automatically sell greys and repair items.
 

@@ -1,18 +1,26 @@
 name: package
 
 on: 
-  - push
+  create:
+    tags:
+      - v*
 
 jobs:
   package:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
+    - name: Set output
+      id: vars
+      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+    - name: zip artifacts
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: vendie-${{steps.vars.outputs.tag}}.zip
+        type: zip
+        directory: build
     - name: upload artifact
       uses: actions/upload-artifact@v1
       with:
-        name: vendie
-        path: ./src
+        path: vendie-${{steps.vars.outputs.tag}}.zip
 

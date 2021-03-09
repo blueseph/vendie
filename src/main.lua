@@ -26,7 +26,7 @@ function SellAllItems()
 
         if itemRarity == GREY_QUALITY then
           if itemSellPrice ~= CANNOT_BE_SOLD then
-            total = itemSellPrice + total
+            total = (itemSellPrice * itemStackCount) + total
             UseContainerItem(bag, slot)
           else 
             PickupContainerItem(bag, slot);
@@ -48,7 +48,12 @@ function Repair()
     local cost, needed = GetRepairAllCost()
 
     if cost > 0 and needed then
-      RepairAllItems()
+      local canUseGuildFunds = false
+      if GetGuildBankWithdrawMoney() > 0 then
+        canUseGuildFunds = true
+      end
+
+      RepairAllItems(canUseGuildFunds)
 
       local gold, silver, copper = ConvertToGoldSilverCopper(cost)
       DEFAULT_CHAT_FRAME:AddMessage("[Vendie] Repaired for "..gold.."g "..silver.."s "..copper.."c")
