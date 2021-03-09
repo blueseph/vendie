@@ -18,12 +18,22 @@ jobs:
     - name: zip artifacts
       uses: thedoctor0/zip-release@master
       with:
-        filename: vendie.zip
+        filename: vendie-${{steps.vars.outputs.tag}}.zip
         type: zip
-        path: build
-    - name: upload artifact
-      uses: actions/upload-artifact@v1
+        path: vendie
+    - name: create release
+      id: create_release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: vendie.zip
-        path: "."
+        tag_name: ${{steps.vars.outputs.tag}}
+        repository: ${{ github.respository }}
+    - name: upload release
+      uses: actions/upload-release-asset
+      with:
+        upload_url: ${{steps.create_release.outputs.upload_url}}
+        asset_name: vendie-${{steps.vars.outputs.tag}}.zip
+        asset_path: ./
+        asset_content_type: application/zip
 

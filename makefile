@@ -1,3 +1,2 @@
 build:
-	mkdir -p build
-	mv src/ build/vendie/
+	mv src/ vendie/
