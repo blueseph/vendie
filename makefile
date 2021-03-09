@@ -1,3 +1,3 @@
 build:
-	mkdir -p build/vendie/
-	cp -r src/ build/vendie/
+	mkdir -p build
+	mv src/ build/vendie/
