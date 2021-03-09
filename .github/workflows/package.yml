@@ -25,4 +25,5 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: vendie-${{steps.vars.outputs.tag}}.zip
+        path: "."
 
